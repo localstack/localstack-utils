@@ -31,6 +31,7 @@ class Container:
         environment_variables: dict = None,
         bind_ports: dict = None,
         pro: bool = False,
+        auto_remove: bool = False,
     ):
         environment_variables = environment_variables or {}
         environment_variables["GATEWAY_LISTEN"] = gateway_listen
@@ -56,6 +57,7 @@ class Container:
             image_name_or_default,
             ports=bind_ports,
             environment=environment_variables,
+            auto_remove=auto_remove,
             detach=True,
         )
 

@@ -14,3 +14,4 @@ class LocalstackDockerConfiguration:
     use_dingle_docker_container = False
     ignore_docker_runerrors = False
     pro = False
+    auto_remove_container = False

@@ -48,6 +48,7 @@ class Localstack:
                 docker_configuration.environment_variables,
                 docker_configuration.port_mappings,
                 docker_configuration.pro,
+                docker_configuration.auto_remove_container,
             )
 
             self.setup_logger()
@@ -77,6 +78,7 @@ def startup_localstack(
     env_variables=None,
     gateway_listen="",
     ignore_docker_errors=False,
+    auto_remove_container=False,
 ):
     global localstack_instance
     localstack_instance = Localstack.INSTANCE()
@@ -100,6 +102,9 @@ def startup_localstack(
 
     if gateway_listen:
         config.gateway_listen = gateway_listen
+
+    if auto_remove_container:
+        config.auto_remove_container = auto_remove_container
 
     localstack_instance.startup(config)
 
